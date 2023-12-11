@@ -8,7 +8,7 @@ const SubMenu = ({item}: {item: SideNavItem}) => {
     const showSubnav = () => setsubnav(!subnav)
   return (
     <>
-      <Link href= {item.path} onClick={item.subNav && showSubnav}>
+      <Link href= {item.path} onClick={item.subNav && showSubnav} className="bg-fourth px-5 py-3 max-w-[260px] max-h-[50px] px-12 flex items-center no-underline text-third text-lg hover:bg-third text-fourth cursor-pointer transition-all duration-200 ease-out">
         <div>
              {item.icon}
              <p>
@@ -26,7 +26,7 @@ const SubMenu = ({item}: {item: SideNavItem}) => {
       </Link>
       {subnav && item.subNav?.map((item, index) => {
             return (
-                <Link href={item.path} key={index}>
+                <Link className="max-h-[50px] px-12 flex items-center no-underline text-third text-lg hover:bg-third text-fourth cursor-pointer transition-all duration-200 ease-out" href={item.path} key={index}>
                     {item.icon}
                     <p>
                         {item.title}

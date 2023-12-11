@@ -18,7 +18,7 @@ function Sidebar() {
                 ArrdelBee Territorial
             </p>
         </div>
-        <div className="bg-steelblue shadow-md rounded flex flex-row profile">
+        <div className="bg-fourth shadow-md rounded flex flex-row profile">
              <Image
                 src="../utils/pp.svg"
                 width={33}
@@ -37,8 +37,8 @@ function Sidebar() {
              </div>
         </div>
         <div className="option">
-            <nav>
-              <div>
+            <nav className="w-20 h-screen flex justify-center fixed top-0 left-0 z-10">
+              <div className="w-full text-third space-x-2">
                 {sidebardata.map((item, index)=>{
                   return <SubMenu item={item} key={index} />
                 })}
