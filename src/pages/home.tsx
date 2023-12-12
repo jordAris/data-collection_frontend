@@ -3,8 +3,8 @@ import Sidebar from '@/components/sidebar'
 const home = () => {
   return (
     <div>
-      {/*Sidebar */}
-      <Sidebar />
+      {/*Container */}
+      
     </div>
   )
 }

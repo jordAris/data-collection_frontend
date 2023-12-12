@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="flex">
-          <div>
+          <div className='bg-primary max-w-[280px] h-screen overflow-y-auto md:min-w-[20rem]'>
             <Sidebar />
           </div>
 
