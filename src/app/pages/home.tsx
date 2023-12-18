@@ -1,9 +1,8 @@
 "use client"
-import Sidebar from '@/components/sidebar'
 
 const home = () => {
   return (
-    <div>
+    <di className="bg-fourth">
       {/*Container */}
       
     </div>

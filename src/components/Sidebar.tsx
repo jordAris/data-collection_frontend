@@ -1,4 +1,4 @@
-"use client"
+'use client'
 /* eslint-disable react/jsx-no-undef */
 import { ArrowDownOnSquareIcon, ArrowDownOnSquareStackIcon, ArrowRightOnRectangleIcon, BellAlertIcon, ChartBarSquareIcon, DocumentTextIcon, ExclamationCircleIcon, HomeIcon, PhoneIcon, TableCellsIcon, UserIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
@@ -7,7 +7,7 @@ import sidebardata from "./sidebardata"
 import SubMenu from "./SubMenu"
 function Sidebar() {
   return (
-    <div className="md:w-60 bg-primary flex-1 fixed flex-col h-screen items-center md:flex hidden rounded-lg shadow-xl">
+    <div className="md:w-60 bg-primary md:flex h-screen items-center hidden rounded-lg shadow-xl">
       <div className="flex-1 space-y-12 items-center md:px-2">
         <div className="text-secondary my-2 font-h2 flex flex-row">
             <Image 
