@@ -1,41 +1,44 @@
 import { SideNavItem } from "@/types"
 import Link from "next/link"
-import { useState } from "react"
+import React, { useState } from "react"
 
 
 const SubMenu = ({item}: {item: SideNavItem}) => {
     const [subnav, setsubnav] = useState(false)
-    const showSubnav = () => setsubnav(!subnav)
+    const showSubnav = () => {setsubnav(!subnav)}
   return (
-    <>
-      <Link href= {item.path} onClick={item.subNav && showSubnav} className="bg-fourth px-5 py-3 max-w-[260px] max-h-[50px] px-12 flex items-center no-underline text-third text-lg hover:bg-third text-fourth cursor-pointer transition-all duration-200 ease-out">
-        <div>
+    <div>
+      <Link href= {item.path} onClick={item.subNav && showSubnav} className="flex flex-row items-center rounded-lg no-underline w-full justify-between ">
+        <div className="shadow-md text-third bg-fourth rounded w-full h-[50px] px-5 items-center flex flex-row space-x-6 hover:bg-third hover:text-fourth cursor-pointer transition-all duration-200 ease-out">
              {item.icon}
-             <p>
+             <p className="font-h2 flex">
                 {item.title}
              </p>
+             <div className="relative right-[-50px]">
+                {item.subNav && subnav
+                ? item.iconOpened
+                : item.subNav
+                ? item.iconClosed
+                : null
+                }
+              </div>
         </div>
-        <div>
-            {item.subNav && subnav
-            ? item.iconOpened
-            : item.subNav
-            ? item.iconClosed
-            : null
-            }
-        </div>
+
       </Link>
       {subnav && item.subNav?.map((item, index) => {
             return (
-                <Link className="max-h-[50px] px-12 flex items-center no-underline text-third text-lg hover:bg-third text-fourth cursor-pointer transition-all duration-200 ease-out" href={item.path} key={index}>
+                <Link className="shadow-md flex items-center no-underline text-third text-lg hover:bg-third text-fourth cursor-pointer transition-all duration-200 ease-out" href={item.path} key={index}>
+                  <div className="shadow-md text-third bg-fourth rounded w-full h-[50px] px-5 items-center flex flex-row space-x-6 hover:bg-third hover:text-fourth cursor-pointer transition-all duration-200 ease-out">
                     {item.icon}
-                    <p>
+                    <p className="font-h2 flex">
                         {item.title}
                     </p>
+                  </div>
                 </Link>
             )
         })
       }
-    </>
+    </div>
   )
 }
 

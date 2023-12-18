@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
+import '../styles/globals.css'
 import Sidebar from '@/components/sidebar'
+import Header from '@/components/header/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,11 +20,15 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="flex">
-          <div className='bg-primary max-w-[280px] h-screen overflow-y-auto md:min-w-[20rem]'>
+          <div>
             <Sidebar />
           </div>
-
-          <div className='bg-fourth flex-1'>{children}</div>
+          <div className="flex-col">
+            <div className=''>
+              <Header />
+            </div>
+            <div className='bg-fourth flex-1'>{children}</div>
+          </div>
         </div>
       </body>
     </html>
