@@ -5,7 +5,7 @@ import { Image } from "next/image";
 
 const Header = () => {
   return (
-    <div className="bg-primary absolute h-20 w-[95%] flex justify-between items-center mx-5 shadow-md rounded-lg mt-5">
+    <div className="bg-primary absolute left-4 h-20 w-[95%] flex justify-between items-center mx-5 shadow-md rounded-lg mt-5">
       <div className="pl-5 relative items-center">
         <span className="text-lg font-bold text-secondary">
           ArrdelBee    -

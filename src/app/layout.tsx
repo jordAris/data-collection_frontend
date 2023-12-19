@@ -19,7 +19,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex">
+        <div className="flex bg-fourth pl-3">
           <Sidebar />
           <div className="flex-1 md:flex h-screen relative">
             <Header />
