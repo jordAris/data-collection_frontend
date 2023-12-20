@@ -54,7 +54,7 @@ const Page: React.FC = () => {
      };
   return (
     <div className="pt-[8%] pl-5 justify-between">
-        <div className='flex justify-between'>
+        <div className='flex justify-between mt-5'>
             <div className='relative inline-block text-left mb-3 justify-between'>
                 <button onClick={toggleMenu} className='inline-flex items-center px-4 py-2 border border-fray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-third hover:bg-fourth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'>
                     Choose a category
