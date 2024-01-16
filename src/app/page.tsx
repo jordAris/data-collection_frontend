@@ -1,8 +1,10 @@
 'use client'
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { ChevronDownIcon, PlusIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import React, {useEffect, useState} from 'react'
 import DataTable from 'react-data-table-component';
+import MaterialTable from 'material-table'
+import Forms from './pages/forms';
 
 const Page: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +15,7 @@ const Page: React.FC = () => {
     const toggleImportOptions = () => {
         setIsImportSelected(!isImportSelected);
     }
+    const [isFormOk, setFormOk] = useState()
 
     useEffect(() => {
         const button = document.getElementById('import-button')
@@ -36,6 +39,7 @@ const Page: React.FC = () => {
 
         }
     }, [])
+
 
     const [columns] = useState([
         { name: 'Name', selector: 'name', sortable: true },
@@ -109,6 +113,17 @@ const Page: React.FC = () => {
             </div>
       </div>
       <div className="md:w-[95%] ml-8 mt-5">
+        <div classname="p-4">
+            <div className="flex justify-between items-center mb-4">
+                <div>
+                    <p className="text-gray-900"> Created on: {new Date().toISOString().slice(0, 10)}</p>
+                </div>
+                <button className='bg-primary hover:bg-third hover:text-fourth text-secondary font-bold py-2 px-4 rouuded flex space-x-3'>
+                    <PlusIcon className="h-6 w-6" />
+                    <span>Add value</span>
+                </button>
+            </div>
+        </div>
         <DataTable
             title="User Data"
             columns={columns}
@@ -117,8 +132,9 @@ const Page: React.FC = () => {
             selectableRows
             noHeader
             className="z-0"
-        />
-      </div> 
+        />    
+      </div>
+      <Forms /> 
     </div>
   )
 }
