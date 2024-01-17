@@ -21,14 +21,37 @@ const Page: React.FC = () => {
 
     const [data, setData] = useState<any[]>([]);
     const [selectedFile, setSelectedFile] = useState<File | null>();
-
-
     const [datazone, setDatazone] = useState<any[]>([]);
-    
     const [datasecteur, setDatasecteur] = useState<any[]>([]);
     const [datasenateur, setDatasenateur] = useState<any[]>([]);
     const [dataressourcezone, setDataressourcezone] = useState<any[]>([]);
     const [dataregion, setDataregion] = useState<any[]>([]);
+    const [datacadre, setDatacadre] = useState<any[]>([]);   
+    const [datachefferie, setDatachefferie] = useState<any[]>([]);
+    const [datacollectivite, setDatacollectivite] = useState<any[]>([]);
+    const [datadepartement, setDatadepartement] = useState<any[]>([]);
+    const [datagouverneur, setDatagouverneur] = useState<any[]>([]);
+    const [datainfrastructure, setDatainfrastructure] = useState<any[]>([]);
+    const [dataminfrastructure, setDataminfrastructure] = useState<any[]>([]);
+    const [dataministere, setDataministere] = useState<any[]>([]);
+    const [datapays, setDatapays] = useState<any[]>([]);
+    const [datapaysageub, setDatapaysageub] = useState<any[]>([]);
+    const [datapossibilite, setDatapossibilite] = useState<any[]>([]);
+    const [datapotentialite, setDatapotentialite] = useState<any[]>([]);
+    const [dataprobleme, setDataprobleme] = useState<any[]>([]);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     const [selectedDataType, setSelectedDataType] = useState('localites'); 
     useEffect(() => {
@@ -444,9 +467,15 @@ const Page: React.FC = () => {
                                     onClick={() => { setSelectedDataType('potentialites'); toggleMenu(); }}
                                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                                 >
-                                    potentialités des zones
+                                    Potentialités des zones
                                 </a>
-                        
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('probleme'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    Problème
+                                </a>
                             </div>
                         </div>
                     )}
