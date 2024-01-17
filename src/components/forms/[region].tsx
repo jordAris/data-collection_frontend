@@ -3,13 +3,13 @@ import { useState } from "react";
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
-const Chiefdom: React.FC = () => {
+const Region: React.FC = () => {
   const { register, handleSubmit, setValue } = useForm();
   const [successMessage, setSuccessMessage] = useState('');
 
   const onSubmit = async (data: any) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/zones/zone', data);
+      const response = await axios.post('http://localhost:8080//api/regions/region', data);
       setSuccessMessage(response.data.message);
     } catch (error) {
       console.error(error);
@@ -26,92 +26,88 @@ const Chiefdom: React.FC = () => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md w-full">
-      <h2 className="text-xl font-semibold mb-6">Enregistrer une Zone</h2>
+      <h2 className="text-xl font-semibold mb-6">Enregistrer une Région</h2>
       <form onSubmit={handleSubmit(handleSubmitForm)}>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Zone">
-            Zone
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="CodeRegion">
+            Code Region
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="Zone"
-            {...register('codeLocalite', { required: true })}
-            type="text"
-    
-            placeholder="Entrer le nom de la Zone"
+            id="CodeRegion"
+            {...register('CodeRegion', { required: true })}
+            type="number"
+            min="0"
+            placeholder="Code Region"
             //value={formData.codeLocalite}
             onChange={handleChange}
           />
         </div>
-
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="ZNiveau">
-            ZNiveau
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Libelle">
+            Libellé
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="ZNiveau"
-            {...register('ZNiveau', { required: true })}
+            id="libelle"
+            {...register('Libelle', { required: true })}
             type="text"
-            placeholder="Entrer le ZNiveau"
+            placeholder="Libellé"
             //value={formData.Libelle}
             onChange={handleChange}
           />
         </div>
 
+<div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Accessible">
+          Accessible
+        </label>
+        <select {...register('Accessible')}>
+          <option value="1">True</option>
+          <option value="0">False</option>
+        </select>
+      </div>
+
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="NbDepartement">
-            Nombre de département
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="DateCreation">
+            Date Creation de la Région
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="NbDepartement"
-            {...register('NbDepartement', { required: true })}
-            type="number"
-            min="0"
-            placeholder="Entrer le nombre de département"
+            id="DateCreation"
+            {...register('DateCreation', { required: true })}
+            type="date"
+           
+            placeholder="Pourcentage Population"
             onChange={handleChange}
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="NbCommune">
-           Nombre de Commune
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Densite">
+            Densite
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="NbCommune"
-            {...register('NbCommune', { required: true })}
-            type="number"
-            min="1"
-            placeholder="Entrer le nombre de Commune"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="NbLocalite">
-            Nombre de Localité
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="NbLocalite"
-            {...register('NbLocalite', { required: true })}
+            id="Densite"
+            {...register('Densite', { required: true })}
             type="number"
             min="0"
-            placeholder="Entrer le Nombre de Localité"
+            placeholder="Entrer la densité de la région"
             onChange={handleChange}
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Superficies">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Superficie">
             Superficie
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="Superficies"
-            {...register('Superficies', { required: true })}
+            id="Superficie"
+            {...register('Superficie', { required: true })}
             type="number"
-            placeholder="Entrer la Superficies"
+            min="0"
+            placeholder="Superficie de la région"
             onChange={handleChange}
           />
         </div>
@@ -134,4 +130,4 @@ const Chiefdom: React.FC = () => {
   );
 };
 
-export default Chiefdom;
+export default Region;

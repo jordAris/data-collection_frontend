@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
-const Chiefdom: React.FC = () => {
+const Zone: React.FC = () => {
   const { register, handleSubmit, setValue } = useForm();
   const [successMessage, setSuccessMessage] = useState('');
 
@@ -134,4 +134,4 @@ const Chiefdom: React.FC = () => {
   );
 };
 
-export default Chiefdom;
+export default Zone;

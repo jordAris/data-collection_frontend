@@ -3,13 +3,13 @@ import { useState } from "react";
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
-const Chiefdom: React.FC = () => {
+const Senator: React.FC = () => {
   const { register, handleSubmit, setValue } = useForm();
   const [successMessage, setSuccessMessage] = useState('');
 
   const onSubmit = async (data: any) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/zones/zone', data);
+      const response = await axios.post("http://localhost:8080/api/senateurs/senateur", data);
       setSuccessMessage(response.data.message);
     } catch (error) {
       console.error(error);
@@ -26,95 +26,77 @@ const Chiefdom: React.FC = () => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md w-full">
-      <h2 className="text-xl font-semibold mb-6">Enregistrer une Zone</h2>
+      <h2 className="text-xl font-semibold mb-6">Enregistrer un sénateur</h2>
       <form onSubmit={handleSubmit(handleSubmitForm)}>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Zone">
-            Zone
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Qualite">
+            Qualite
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="Zone"
-            {...register('codeLocalite', { required: true })}
+            id="Qualite"
+            {...register('Qualite', { required: true })}
             type="text"
     
-            placeholder="Entrer le nom de la Zone"
+            placeholder="Qualite"
             //value={formData.codeLocalite}
             onChange={handleChange}
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="ZNiveau">
-            ZNiveau
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Nom">
+            Nom
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="ZNiveau"
-            {...register('ZNiveau', { required: true })}
+            id="Nom"
+            {...register('Nom', { required: true })}
             type="text"
-            placeholder="Entrer le ZNiveau"
+            placeholder="Entrer le nom du sénateur"
             //value={formData.Libelle}
             onChange={handleChange}
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="NbDepartement">
-            Nombre de département
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Prenom">
+            Prenom
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="NbDepartement"
-            {...register('NbDepartement', { required: true })}
-            type="number"
-            min="0"
-            placeholder="Entrer le nombre de département"
+            id="Prenom"
+            {...register('Prenom', { required: true })}
+            type="text"
+            
+            placeholder="Entrer le Prenom du sénateur"
             onChange={handleChange}
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="NbCommune">
-           Nombre de Commune
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Mandat">
+           Mandat
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="NbCommune"
-            {...register('NbCommune', { required: true })}
-            type="number"
-            min="1"
-            placeholder="Entrer le nombre de Commune"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="NbLocalite">
-            Nombre de Localité
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="NbLocalite"
-            {...register('NbLocalite', { required: true })}
-            type="number"
-            min="0"
-            placeholder="Entrer le Nombre de Localité"
+            id="Mandat"
+            {...register('Mandat', { required: true })}
+            type="Text"
+            
+            placeholder="Mandat"
             onChange={handleChange}
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Superficies">
-            Superficie
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="Superficies"
-            {...register('Superficies', { required: true })}
-            type="number"
-            placeholder="Entrer la Superficies"
-            onChange={handleChange}
-          />
-        </div>
+        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Elu_Nomme">
+          Elu/Nomme
+        </label>
+        <select {...register('Elu_Nomme')}>
+          <option value="True">True</option>
+          <option value="False">False</option>
+        </select>
+      </div>
         
         <div className="flex items-center justify-center">
           <button
@@ -134,4 +116,4 @@ const Chiefdom: React.FC = () => {
   );
 };
 
-export default Chiefdom;
+export default Senator;
