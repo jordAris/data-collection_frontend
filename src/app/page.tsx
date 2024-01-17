@@ -318,7 +318,7 @@ const Page: React.FC = () => {
  */}
 
                     {isOpen && (
-                        <div className="relative right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                        <div className="relative right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1  overflow-y-auto h-[10rem] z-50  ring-black ring-opacity-5 focus:outline-none z-50">
                             <div className="py-1">
                                 <a
                                     href="#"
@@ -362,6 +362,91 @@ const Page: React.FC = () => {
                                 >
                                     Region
                                 </a>
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('cadres'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    Cadres
+                                </a>
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('chefferies'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    Chefferies
+                                </a>
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('collectivites'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    Collectivite Territoriale
+                                </a>
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('departement'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    Département
+                                </a>
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('gouverneur'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    Gouverneur
+                                </a>
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('infrastructure'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    infrastructure
+                                </a>
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('minfrastructure'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                   minfrastructure
+                                </a>
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('minsitere'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    minsitère
+                                </a>
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('pays'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    pays
+                                </a>
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('paysage'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    Paysage Urbains
+                                </a>
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('possibilites'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    Possibilité de zones
+                                </a>
+                                <a
+                                    href="#"
+                                    onClick={() => { setSelectedDataType('potentialites'); toggleMenu(); }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    potentialités des zones
+                                </a>
+                        
                             </div>
                         </div>
                     )}
