@@ -26,7 +26,7 @@ const TerritorialCollectivity: React.FC = () => {
 
   return (
     <div className="bg-third p-5 overflow-y-auto rounded-lg shadow-sm w-full h-[30rem]">
-      <h2 className="text-xl font-semibold mb-3">Register a TerritorialCollectivity</h2>
+      <h2 className="text-xl font-semibold mb-3">Register a Territorial Collectivity</h2>
       <form onSubmit={handleSubmit(handleSubmitForm)}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="codeLocalite">

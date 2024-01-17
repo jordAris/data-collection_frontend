@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, {useEffect, useState} from 'react'
 import DataTable from 'react-data-table-component';
 import Forms from '../components/forms/[locality]';
+import { getFormComponent } from '@/constant/FormFactory/FormFactory';
 
 const Page: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -71,13 +72,13 @@ const Page: React.FC = () => {
   return (
     <div className="pt-[8%] pl-5 justify-between relative mt-5">
         <div className='flex justify-between mt-5'>
-            <div className='relative inline-block text-left mb-3 justify-between'>
+            <div className='relative inline-block z-50 text-left mb-3 justify-between'>
                 <button onClick={toggleMenu} className='inline-flex items-center px-4 py-2 border border-fray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-third hover:bg-fourth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'>
                     Choose a category
                     <ChevronDownIcon className='h-4 w-4' />
                 </button>
                 {isOpen && (
-                    <div className='relative right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50'>
+                    <div className='relative right-0 mt-2 w-56 rounded-md shadow-lg bg-white overflow-y-auto h-[1rem] z-50 ring-1 ring-black ring-opacity-5 focus:outline-none z-50'>
                         <div className="py-1">
                             <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={()=>setSelectedOption('locality')}>
                                 locality
@@ -86,7 +87,7 @@ const Page: React.FC = () => {
                                 cadre
                             </a>
                             <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => {setSelectedOption('TerritorialCollectivity')}}>
-                                TerritorialCollectivity
+                                Territorial Collectivity
                             </a>
                         </div>
                     </div>
@@ -147,7 +148,7 @@ const Page: React.FC = () => {
       </div>
       {isFormOk && (
             <div className='items-center m-1 p-3 relative z-50 top-[-250px] '>
-                <Forms />
+                {renderForm()}
                 <button className='bg-primary hover:bg-third hover:text-fourth text-secondary font-bold py-2 px-4 rouuded flex space-x-3 mt-5 float-left' onClick={toggleForm}>
                     <XMarkIcon className="h-6 w-6" />
                     <span>Cancel</span>
