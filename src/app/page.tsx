@@ -15,7 +15,10 @@ const Page: React.FC = () => {
     const toggleImportOptions = () => {
         setIsImportSelected(!isImportSelected);
     }
-    const [isFormOk, setFormOk] = useState()
+    const [isFormOk, setFormOk] = useState(false);
+    const toggleForm = () => {
+        setFormOk(!isFormOk)
+    }
 
     useEffect(() => {
         const button = document.getElementById('import-button')
@@ -57,7 +60,7 @@ const Page: React.FC = () => {
         console.log('Row selected: ', row);
      };
   return (
-    <div className="pt-[8%] pl-5 justify-between">
+    <div className="pt-[8%] pl-5 justify-between relative mt-5">
         <div className='flex justify-between mt-5'>
             <div className='relative inline-block text-left mb-3 justify-between'>
                 <button onClick={toggleMenu} className='inline-flex items-center px-4 py-2 border border-fray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-third hover:bg-fourth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'>
@@ -118,7 +121,7 @@ const Page: React.FC = () => {
                 <div>
                     <p className="text-gray-900"> Created on: {new Date().toISOString().slice(0, 10)}</p>
                 </div>
-                <button className='bg-primary hover:bg-third hover:text-fourth text-secondary font-bold py-2 px-4 rouuded flex space-x-3'>
+                <button className='bg-primary hover:bg-third hover:text-fourth text-secondary font-bold py-2 px-4 rouuded flex space-x-3' onClick={toggleForm}>
                     <PlusIcon className="h-6 w-6" />
                     <span>Add value</span>
                 </button>
@@ -129,12 +132,15 @@ const Page: React.FC = () => {
             columns={columns}
             data={data}
             onRowSelected={handleRowSelected}
-            selectableRows
             noHeader
             className="z-0"
         />    
       </div>
-      <Forms /> 
+      {isFormOk && (
+            <div className='items-center m-5 p-5 relative z-50 top-[-250px] '>
+                <Forms />
+            </div>  
+        )}
     </div>
   )
 }
