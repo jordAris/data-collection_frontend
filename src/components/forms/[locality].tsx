@@ -26,11 +26,11 @@ const Forms: React.FC = () => {
 
   return (
     <div className="bg-third p-5 overflow-y-auto rounded-lg shadow-sm w-full h-[30rem]">
-      <h2 className="text-xl font-semibold mb-3">Enregistrer une Localité</h2>
+      <h2 className="text-xl font-semibold mb-3">Register a Locality</h2>
       <form onSubmit={handleSubmit(handleSubmitForm)}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="codeLocalite">
-            Code Localité
+            Locality Code
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -38,28 +38,28 @@ const Forms: React.FC = () => {
             {...register('codeLocalite', { required: true })}
             type="number"
             min="0"
-            placeholder="Code Localité"
+            placeholder="Locality Code"
             //value={formData.codeLocalite}
             onChange={handleChange}
           />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Libelle">
-            Libellé
+            Wording
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="libelle"
             {...register('Libelle', { required: true })}
             type="text"
-            placeholder="Libellé"
+            placeholder="Wording"
             //value={formData.Libelle}
             onChange={handleChange}
           />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="PNombreMenage">
-            Pourcentage Nombre de Menage
+            Percentage Number of Households
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -67,13 +67,13 @@ const Forms: React.FC = () => {
             {...register('PNombreMenage', { required: true })}
             type="number"
             min="0"
-            placeholder="Pourcentage Nombre de Menage"
+            placeholder="Percentage Number of Households"
             onChange={handleChange}
           />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="PPolutaion">
-            Pourcentage Population
+            Population percentage
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -81,46 +81,46 @@ const Forms: React.FC = () => {
             {...register('PPolutaion', { required: true })}
             type="number"
             min="0"
-            placeholder="Pourcentage Population"
+            placeholder="Population percentage"
             onChange={handleChange}
           />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="IEEcodeMaternelle">
-            IEE Code Maternelle
+            IEE Nursery Code
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="ieeCodeMaternelle"
             {...register('IEEcodeMaternelle', { required: true })}
             type="text"
-            placeholder="IEE Code Maternelle"
+            placeholder="IEE Nursery Code"
             onChange={handleChange}
           />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="IEEcodePrimaire">
-            IEE Code Primaire
+            IEE Primary Code
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="ieeCodePrimaire"
             {...register('IEEcodePrimaire', { required: true })}
             type="text"
-            placeholder="IEE Code Primaire"
+            placeholder="IEE Primary Code"
             onChange={handleChange}
           />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="IEEcodeSecondaire">
-            IEE Code Secondaire
+            IEE Secondary Code
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="ieeCodeSecondaire"
             {...register('IEEcodeSecondaire', { required: true })}
             type="text"
-            placeholder="IEE Code Secondaire"
+            placeholder="IEE Secondary Code"
             onChange={handleChange}
           />
         </div>
@@ -129,7 +129,7 @@ const Forms: React.FC = () => {
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
-            Enregistrer
+            Save
           </button>
         </div>
       </form>

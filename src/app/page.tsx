@@ -1,10 +1,9 @@
 'use client'
-import { ChevronDownIcon, PlusIcon } from '@heroicons/react/24/outline';
+import { ChevronDownIcon, PlusIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import React, {useEffect, useState} from 'react'
 import DataTable from 'react-data-table-component';
-import MaterialTable from 'material-table'
-import Forms from './pages/forms';
+import Forms from '../components/forms/[locality]';
 
 const Page: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +17,16 @@ const Page: React.FC = () => {
     const [isFormOk, setFormOk] = useState(false);
     const toggleForm = () => {
         setFormOk(!isFormOk)
+    }
+
+    const [selectedOption, setSelectedOption] = useState<string | null>(null)
+
+    const renderForm = () => {
+        if(selectedOption) {
+            const FormComponent = getFormComponent(selectedOption);
+            return FormComponent? <FormComponent /> : null;
+        }
+        return null;
     }
 
     useEffect(() => {
@@ -70,14 +79,14 @@ const Page: React.FC = () => {
                 {isOpen && (
                     <div className='relative right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50'>
                         <div className="py-1">
-                            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-                                Option 1
+                            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={()=>setSelectedOption('locality')}>
+                                locality
                             </a>
-                            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-                                Option 2
+                            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => {setSelectedOption('cadre')}}>
+                                cadre
                             </a>
-                            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-                                Option 3
+                            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => {setSelectedOption('TerritorialCollectivity')}}>
+                                TerritorialCollectivity
                             </a>
                         </div>
                     </div>
@@ -137,8 +146,12 @@ const Page: React.FC = () => {
         />    
       </div>
       {isFormOk && (
-            <div className='items-center m-5 p-5 relative z-50 top-[-250px] '>
+            <div className='items-center m-1 p-3 relative z-50 top-[-250px] '>
                 <Forms />
+                <button className='bg-primary hover:bg-third hover:text-fourth text-secondary font-bold py-2 px-4 rouuded flex space-x-3 mt-5 float-left' onClick={toggleForm}>
+                    <XMarkIcon className="h-6 w-6" />
+                    <span>Cancel</span>
+                </button>
             </div>  
         )}
     </div>
