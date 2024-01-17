@@ -70,15 +70,15 @@ const Page: React.FC = () => {
         console.log('Row selected: ', row);
      };
   return (
-    <div className="pt-[8%] pl-5 justify-between relative mt-5">
-        <div className='flex justify-between mt-5'>
-            <div className='relative inline-block z-50 text-left mb-3 justify-between'>
+    <div className="pt-10 pl-5 justify-between relative">
+        <div className='flex justify-between'>
+            <div className='relative inline-block ml-6 mb-3'>
                 <button onClick={toggleMenu} className='inline-flex items-center px-4 py-2 border border-fray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-third hover:bg-fourth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'>
                     Choose a category
                     <ChevronDownIcon className='h-4 w-4' />
                 </button>
                 {isOpen && (
-                    <div className='relative right-0 mt-2 w-56 rounded-md shadow-lg bg-white overflow-y-auto h-[1rem] z-50 ring-1 ring-black ring-opacity-5 focus:outline-none z-50'>
+                    <div className='relative right-0 mt-2 w-56 rounded-md shadow-lg bg-white overflow-y-auto z-50 ring-1 ring-black ring-opacity-5 focus:outline-none'>
                         <div className="py-1">
                             <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={()=>setSelectedOption('locality')}>
                                 locality
@@ -93,7 +93,7 @@ const Page: React.FC = () => {
                     </div>
                 )}
             </div>
-            <div className='relative inline-block mr-10 text-left mb-3'>
+            <div className='relative inline-block mr-11 text-left mb-3'>
                 <button id='import-button' onClick={toggleImportOptions} className='inline-flex items-center px-4 py-2 border border-fray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-third hover:bg-fourth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'>
                     Import from a File
                     <ChevronDownIcon className='h-4 w-4' />
@@ -125,8 +125,8 @@ const Page: React.FC = () => {
             
             </div>
       </div>
-      <div className="md:w-[95%] ml-8 mt-5">
-        <div classname="p-4">
+      <div className="md:w-[95%] ml-8 mt-5 z-0">
+        <div className="p-4">
             <div className="flex justify-between items-center mb-4">
                 <div>
                     <p className="text-gray-900"> Created on: {new Date().toISOString().slice(0, 10)}</p>

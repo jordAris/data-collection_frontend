@@ -21,9 +21,11 @@ export default async function RootLayout({
       <body>
         <div className="flex bg-fourth pl-3">
           <Sidebar />
-          <div className="flex-1 md:flex h-screen relative">
-            <Header />
-            <div className='bg-fourth flex-1'>
+          <div className="flex flex-col overflow-y-auto h-screen w-full">
+            <div className="md:flex items-center justify-center relative top-5">
+             <Header /> 
+            </div>
+            <div className='bg-fourth flex-1 relative mt-6'>
               {children}
             </div>
           </div>

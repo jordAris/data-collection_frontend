@@ -72,17 +72,14 @@ const Cadre: React.FC = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="access" >
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="access">
             acessible
           </label>
-          <input
-            className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="accessi"
-            {...register('accessi', { required: true })}
-            type="checkbox"
-            min="0"
-            onChange={handleChange}
-          />
+          <select name="access" id="access">
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+          
         </div>
         <div className="flex items-center justify-center">
           <button
