@@ -40,20 +40,8 @@ const Page: React.FC = () => {
     const [datapotentialite, setDatapotentialite] = useState<any[]>([]);
     const [dataprobleme, setDataprobleme] = useState<any[]>([]);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     const [selectedDataType, setSelectedDataType] = useState('localites'); 
+
     useEffect(() => {
         axios
             .get('http://localhost:8080/api/localites')
@@ -119,6 +107,145 @@ const Page: React.FC = () => {
             });
     }, []);
 
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/cadres')
+            .then((response) => {
+                setDatacadre(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/chefferies')
+            .then((response) => {
+                setDatachefferie(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/collectivites')
+            .then((response) => {
+                setDatacollectivite(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/departements')
+            .then((response) => {
+                setDatadepartement(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/gouverneurs')
+            .then((response) => {
+                setDatagouverneur(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/infrastructures')
+            .then((response) => {
+                setDatainfrastructure(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/minfrastructures')
+            .then((response) => {
+                setDataminfrastructure(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/ministeres')
+            .then((response) => {
+                setDataministere(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/paysageUrbains')
+            .then((response) => {
+                setDatapaysageub(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/pays')
+            .then((response) => {
+                setDatapays(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/possibilitesdezone')
+            .then((response) => {
+                setDatapossibilite(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/potentialites')
+            .then((response) => {
+                setDatapotentialite(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/api/problemes')
+            .then((response) => {
+                setDataprobleme(response.data);
+            })
+            .catch((error) => {
+                console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+            });
+    }, []);
+
 
     const columns : TableColumn<any>[] = [
         { name: 'Code Localité', selector: row => row.codeLocalite, sortable: true },
@@ -172,6 +299,128 @@ const Page: React.FC = () => {
         { name: 'Densite', selector: row => row.Densite, sortable: true },
         { name: 'Superficie', selector: row => row.Superficie, sortable: true },
     ];
+
+    const problemeColumns: TableColumn<any>[] = [
+        { name: 'ID Probleme', selector: row => row.idProbleme, sortable: true },
+        { name: 'Probleme', selector: row => row.Probleme, sortable: true },
+        { name: 'Archive', selector: row => row.Archive, sortable: true },
+    ];
+
+
+    const potentialitesDesZonesColumns: TableColumn<any>[] = [
+        { name: 'ID PotentialitesDesZones', selector: row => row.idPotentialitesDesZones, sortable: true },
+        { name: 'Potentialite', selector: row => row.Potentialite, sortable: true },
+        { name: 'Ressource', selector: row => row.Ressource, sortable: true },
+    ];
+
+
+    const possibiliteDeZoneColumns: TableColumn<any>[] = [
+        { name: 'ID PossibiliteDeZone', selector: row => row.idPossibiliteDeZone, sortable: true },
+        { name: 'Specification', selector: row => row.Specification, sortable: true },
+        { name: 'Possibilite Emploi', selector: row => row.PossibiliteEmploi, sortable: true },
+        { name: 'Axe Strategique', selector: row => row.AxeStrategique, sortable: true },
+    ];
+
+    const paysagesUrbainsColumns: TableColumn<any>[] = [
+        { name: 'ID Paysages Urbains', selector: row => row.idPaysagesUrbains, sortable: true },
+        { name: 'Unité Paysage', selector: row => row.UnitePaysage, sortable: true },
+        { name: 'Utilisation', selector: row => row.Utilisation, sortable: true },
+        { name: 'Potentialité', selector: row => row.Potentialite, sortable: true },
+        { name: 'Utilisateur', selector: row => row.Utilisateur, sortable: true },
+        { name: 'Problème', selector: row => row.Probleme, sortable: true },
+        { name: 'Causes', selector: row => row.Causes, sortable: true },
+        { name: 'Conséquences', selector: row => row.Consequences, sortable: true },
+        { name: 'Solutions', selector: row => row.Solutions, sortable: true },
+    ];
+
+
+    const paysColumns: TableColumn<any>[] = [
+        { name: 'Numéro d\'enregistrement', selector: row => row.NumEnregistrement, sortable: true },
+        { name: 'Code Pays', selector: row => row.CodePays, sortable: true },
+        { name: 'Libellé', selector: row => row.Libelle, sortable: true },
+        { name: 'Masculin', selector: row => row.Masculin, sortable: true },
+        { name: 'Féminin', selector: row => row.Feminin, sortable: true },
+        { name: 'Total', selector: row => row.Total, sortable: true },
+        { name: 'Accessible', selector: row => row.Accessible, sortable: true },
+        { name: 'Date de création', selector: row => row.DateCreation, sortable: true },
+        { name: 'Densité', selector: row => row.Densite, sortable: true },
+        { name: 'Superficie', selector: row => row.Superficie, sortable: true },
+        { name: 'Nombre de régions', selector: row => row.NbRegion, sortable: true },
+        { name: 'Nombre de communes', selector: row => row.NbCommune, sortable: true },
+        { name: 'Nombre de départements', selector: row => row.NbDepartement, sortable: true },
+        { name: 'Nombre de localités', selector: row => row.NbLocalite, sortable: true },
+        { name: 'Date d\'indépendance', selector: row => row.DateIndependance, sortable: true },
+        { name: 'Date de réunification', selector: row => row.DateReunification, sortable: true },
+        { name: 'Date d\'unification', selector: row => row.DateUnification, sortable: true },
+    ];
+
+    
+
+    const ministereColumns: TableColumn<any>[] = [
+        { name: 'ID Ministère', selector: row => row.idMinistere, sortable: true },
+        { name: 'Désignation', selector: row => row.Designation, sortable: true },
+        { name: 'Site Internet', selector: row => row.SiteInternet, sortable: true },
+        { name: 'Localisation', selector: row => row.Localisation, sortable: true },
+        { name: 'Ministère', selector: row => row.Ministere, sortable: true },
+        { name: 'Secrétariat d\'État', selector: row => row.SecretariatEtat, sortable: true },
+    ];
+
+
+    const mInfrastructureColumns: TableColumn<any>[] = [
+        { name: 'ID MInfrastructure', selector: row => row.idMInfrastructure, sortable: true },
+        { name: 'MInfrastructure', selector: row => row.MInfrastructure, sortable: true },
+    ];
+
+    const infrastructureColumns: TableColumn<any>[] = [
+        { name: 'ID Infrastructure', selector: row => row.idInfrastructure, sortable: true },
+        { name: 'Libelle', selector: row => row.Libelle, sortable: true },
+        { name: 'Etat', selector: row => row.Etat, sortable: true },
+        { name: 'Quantité', selector: row => row.Qte, sortable: true },
+        { name: 'Bénéficiaire', selector: row => row.Beneficiaire, sortable: true },
+        { name: 'Observation', selector: row => row.Observation, sortable: true },
+        { name: 'Groupe Infrastructure', selector: row => row.GroupeInfrastructure, sortable: true },
+    ];
+
+
+    const gouverneurColumns: TableColumn<any>[] = [
+        { name: 'ID Gouverneur', selector: row => row.idGouverneur, sortable: true },
+        { name: 'Nom Gouverneur', selector: row => row.NomGouverneur, sortable: true },
+        { name: 'Prenom Gouverneur', selector: row => row.PrenomGouverneur, sortable: true },
+        { name: 'Elu/Nomme', selector: row => row.Elu_Nomme, sortable: true },
+    ];
+
+
+    const departementColumns: TableColumn<any>[] = [
+    { name: 'ID Département', selector: row => row.idDepartement, sortable: true },
+    { name: 'Nom Département', selector: row => row.NomDepartement, sortable: true },
+];
+
+    const collectiviteTerritorialeColumns: TableColumn<any>[] = [
+    { name: 'ID Collectivité Territoriale', selector: row => row.idCollectiviteTerritoriale, sortable: true },
+    { name: 'Champ', selector: row => row.filed, sortable: true },
+];
+
+    const chefferieColumns: TableColumn<any>[] = [
+    { name: 'ID Chefferie', selector: row => row.idChefferie, sortable: true },
+    { name: 'Libellé Chefferie', selector: row => row.libelleChefferie, sortable: true },
+    { name: 'Classification', selector: row => row.classification, sortable: true },
+    { name: 'N Acte Déterminant', selector: row => row.nActeDeterminant, sortable: true },
+    { name: 'Nom du Chef', selector: row => row.nomDuChef, sortable: true },
+    { name: 'Qualification', selector: row => row.qualification, sortable: true },
+    { name: 'Année au Trône', selector: row => row.anneAuTrone, sortable: true },
+];
+
+const cadreColumns: TableColumn<any>[] = [
+    { name: 'ID Cadre', selector: row => row.idCadre, sortable: true },
+    { name: 'Niveau', selector: row => row.cNiveau, sortable: true },
+    { name: 'Cadre', selector: row => row.cadre, sortable: true },
+    { name: 'Accessible', selector: row => row.accessible, sortable: true },
+];
+
+
+
+
+
     const handleRowSelected = (row: any) => {
         console.log('Row selected: ', row);
     };
@@ -312,6 +561,45 @@ const Page: React.FC = () => {
     }else if (selectedDataType === 'region') {
         selectedData = dataregion;
         selectedColumns = regionColumns;
+    }else if (selectedDataType === 'cadres') {
+        selectedData = datacadre;
+        selectedColumns = cadreColumns;
+    }else if (selectedDataType === 'chefferies') {
+        selectedData = datachefferie;
+        selectedColumns = chefferieColumns;
+    }else if (selectedDataType === 'collectivites') {
+        selectedData = datacollectivite;
+        selectedColumns = collectiviteTerritorialeColumns;
+    }else if (selectedDataType === 'departement') {
+        selectedData = datadepartement;
+        selectedColumns = departementColumns;
+    }else if (selectedDataType === 'gouverneur') {
+        selectedData = datagouverneur;
+        selectedColumns = gouverneurColumns;
+    }else if (selectedDataType === 'infrastructure') {
+        selectedData = datainfrastructure;
+        selectedColumns = infrastructureColumns;
+    }else if (selectedDataType === 'minfrastructure') {
+        selectedData = dataminfrastructure;
+        selectedColumns = mInfrastructureColumns;
+    }else if (selectedDataType === 'ministere') {
+        selectedData = dataministere;
+        selectedColumns = ministereColumns;
+    }else if (selectedDataType === 'pays') {
+        selectedData = datapays;
+        selectedColumns = paysColumns;
+    }else if (selectedDataType === 'paysage') {
+        selectedData = datapaysageub;
+        selectedColumns = paysagesUrbainsColumns;
+    }else if (selectedDataType === 'posssibilites') {
+        selectedData = datapossibilite;
+        selectedColumns = possibiliteDeZoneColumns;
+    }else if (selectedDataType === 'potentialites') {
+        selectedData = datapotentialite;
+        selectedColumns = potentialitesDesZonesColumns;
+    }else if (selectedDataType === 'probleme') {
+        selectedData = dataprobleme;
+        selectedColumns = problemeColumns;
     }
 
 
