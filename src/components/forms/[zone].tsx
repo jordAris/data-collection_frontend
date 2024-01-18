@@ -25,7 +25,7 @@ const Zone: React.FC = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md w-full">
+    <div className="bg-third p-6 rounded-lg shadow-md w-full">
       <h2 className="text-xl font-semibold mb-6">Enregistrer une Zone</h2>
       <form onSubmit={handleSubmit(handleSubmitForm)}>
         <div className="mb-4">

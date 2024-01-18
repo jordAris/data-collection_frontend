@@ -3,8 +3,8 @@ import { ChevronDownIcon, PlusIcon, XMarkIcon } from '@heroicons/react/24/outlin
 import Image from 'next/image';
 import React, {useEffect, useState} from 'react'
 import DataTable from 'react-data-table-component';
-import Forms from '../components/forms/[locality]';
 import { getFormComponent } from '@/constant/FormFactory/FormFactory';
+import { getTableComponent } from '@/constant/DataTableFactory/DataTableFactory';
 
 const Page: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -26,6 +26,14 @@ const Page: React.FC = () => {
         if(selectedOption) {
             const FormComponent = getFormComponent(selectedOption);
             return FormComponent? <FormComponent /> : null;
+        }
+        return null;
+    }
+
+    const renderTable = () => {
+        if(selectedOption) {
+            const TableComponent = getTableComponent(selectedOption);
+            return TableComponent? <TableComponent /> : null
         }
         return null;
     }
@@ -65,48 +73,36 @@ const Page: React.FC = () => {
         { name: 'Jane Doe', email: 'jane.doe@gmail.com', phone: '555-555-5556' },
         // Additional data...
      ]);
-    
-     const handleRowSelected = (row: any) => {
-        console.log('Row selected: ', row);
-     };
   return (
     <div className="pt-10 pl-5 justify-between relative">
         <div className='flex justify-between relative'>
             <div className='relative ml-6 mb-3'>
-                <button onClick={toggleMenu} className='inline-flex items-center px-4 py-2 border border-fray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-third hover:bg-fourth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'>
-                    Choose a category
-                    <ChevronDownIcon className='ml-2 h-4 w-4' />
-                </button>
-                {isOpen && (
-                    <div className='z-50 right-0 mt-2 w-56 rounded-md shadow-lg bg-white overflow-y-auto ring-1 ring-black ring-opacity-5 focus:outline-none'>
-                        <select className="py-1 z-50">
-                            <option className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={()=>setSelectedOption('locality')}>
-                                locality
-                            </option>
-                            <option className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => {setSelectedOption('cadre')}}>
-                                cadre
-                            </option>
-                            <option className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => {setSelectedOption('TerritorialCollectivity')}}>
-                                Territorial Collectivity
-                            </option>
-                            <option className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => {setSelectedOption('chiefdom')}}>
-                                Chiefdom
-                            </option>
-                            <option className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => {setSelectedOption('region')}}>
-                                Region
-                            </option>
-                            <option className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => {setSelectedOption('senator')}}>
-                                Senator
-                            </option>
-                            <option className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => {setSelectedOption('zone')}}>
-                                Zone
-                            </option>
-                            <option className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" onClick={() => {setSelectedOption('ZoneResource')}}>
-                                Zone Resources
-                            </option>
-                        </select>
-                    </div>
-                )}
+                <select className="inline-flex items-center px-4 py-2 border border-fray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-third hover:bg-fourth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" onChange={(e) => setSelectedOption(e.target.value)}>
+                    <option className="block px-4 py-2 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value='locality'>
+                        locality
+                    </option>
+                    <option className="block px-4 py-2 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value='cadre'>
+                        cadre
+                    </option>
+                    <option className="block px-4 py-2 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value='TerritorialCollectivity'>
+                        Territorial Collectivity
+                    </option>
+                    <option className="block px-4 py-2 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value='chiefdom'>
+                        Chiefdom
+                    </option>
+                    <option className="block px-4 py-2 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value='region'>
+                        Region
+                    </option>
+                    <option className="block px-4 py-2 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value='senator'>
+                        Senator
+        </option>
+                    <option className="block px-4 py-2 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value='zone'>
+                        Zone
+                    </option>
+                    <option className="block px-4 py-2 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value='ZoneResource'>
+                        Zone Resources
+                    </option>
+                </select>
             </div>
             <div className='relative mr-11 mb-3'>
                 <button id='import-button' onClick={toggleImportOptions} className='inline-flex items-center px-4 py-2 border border-fray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-third hover:bg-fourth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'>
@@ -140,7 +136,7 @@ const Page: React.FC = () => {
             
             </div>
       </div>
-      <div className="md:w-[95%] ml-8 mt-5 relative z-0">
+      <div className="md:w-[95%] ml-8 mt-5 relative">
         <div className="p-4">
             <div className="flex justify-between items-center mb-4">
                 <div>
@@ -152,17 +148,10 @@ const Page: React.FC = () => {
                 </button>
             </div>
         </div>
-        <DataTable
-            title="User Data"
-            columns={columns}
-            data={data}
-            onRowSelected={handleRowSelected}
-            noHeader
-            className="relative"
-        />    
+        {renderTable()}
       </div>
       {isFormOk && (
-            <div className='items-center m-1 p-3 relative z-50 top-[-250px] '>
+            <div className='relative items-center m-1 p-3 z-50 -top-[15rem]'>
                 {renderForm()}
                 <button className='bg-primary hover:bg-third hover:text-fourth text-secondary font-bold py-2 px-4 rouuded flex space-x-3 mt-5 float-left' onClick={toggleForm}>
                     <XMarkIcon className="h-6 w-6" />
