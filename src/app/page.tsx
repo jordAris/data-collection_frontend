@@ -61,23 +61,11 @@ const Page: React.FC = () => {
         }
     }, [])
 
-
-    const [columns] = useState([
-        { name: 'Name', selector: 'name', sortable: true },
-        { name: 'Email', selector: 'email', sortable: true },
-        { name: 'Phone', selector: 'phone', sortable: true },
-     ]);
-    
-     const [data] = useState([
-        { name: 'John Doe', email: 'john.doe@gmail.com', phone: '555-555-5555' },
-        { name: 'Jane Doe', email: 'jane.doe@gmail.com', phone: '555-555-5556' },
-        // Additional data...
-     ]);
   return (
     <div className="pt-10 pl-5 justify-between relative">
         <div className='flex justify-between relative'>
             <div className='relative ml-6 mb-3'>
-                <select className="inline-flex items-center px-4 py-2 border border-fray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-third hover:bg-fourth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" onChange={(e) => setSelectedOption(e.target.value)}>
+                <select className="inline-flex items-center px-4 py-2 border border-fray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-fourth hover:bg-fourth focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" onChange={(e) => setSelectedOption(e.target.value)}>
                     <option className="block px-4 py-2 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value='locality'>
                         locality
                     </option>
@@ -95,7 +83,7 @@ const Page: React.FC = () => {
                     </option>
                     <option className="block px-4 py-2 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value='senator'>
                         Senator
-        </option>
+                    </option>
                     <option className="block px-4 py-2 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value='zone'>
                         Zone
                     </option>
@@ -115,7 +103,7 @@ const Page: React.FC = () => {
                             <a href="#" className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                                 <Image 
                                     priority
-                                    src="/public/assets/excel-file-type_svgrepo.com.svg"
+                                    src={"/assets/excel-file-type_svgrepo.com.svg"}
                                     width={50}
                                     height={50}
                                 />
@@ -124,7 +112,7 @@ const Page: React.FC = () => {
                             <a href="#" className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
                                 <Image 
                                     priority
-                                    src="/public/assets/excel-file-type_svgrepo.com.svg"
+                                    src={"/assets/pdf-file-type_svgrepo.com.svg"}
                                     width={50}
                                     height={50}
                                 />
@@ -142,7 +130,7 @@ const Page: React.FC = () => {
                 <div>
                     <p className="text-gray-900"> Created on: {new Date().toISOString().slice(0, 10)}</p>
                 </div>
-                <button className='bg-primary hover:bg-third hover:text-fourth text-secondary font-bold py-2 px-4 rouuded flex space-x-3' onClick={toggleForm}>
+                <button className='bg-primary hover:bg-third hover:text-fourth text-secondary font-bold py-2 px-4 rounded flex space-x-3' onClick={toggleForm}>
                     <PlusIcon className="h-6 w-6" />
                     <span>Add value</span>
                 </button>

@@ -5,7 +5,7 @@ import DataTable, { TableColumn } from 'react-data-table-component';
 const Chiefdom: React.FC = () => {
 
     const [data, setDatachefferie] = useState<any[]>([]);
-    const c: TableColumn<any>[] = [
+    const columns: TableColumn<any>[] = [
         { name: 'ID Chefferie', selector: row => row.idChefferie, sortable: true },
         { name: 'Libellé Chefferie', selector: row => row.libelleChefferie, sortable: true },
         { name: 'Classification', selector: row => row.classification, sortable: true },

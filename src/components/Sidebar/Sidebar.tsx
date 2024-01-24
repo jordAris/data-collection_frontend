@@ -7,25 +7,22 @@ import sidebardata from "./sidebardata"
 import SubMenu from "./SubMenu"
 function Sidebar() {
   return (
-    <div className="md:w-60 bg-primary md:flex h-screen items-center hidden rounded-lg shadow-xl">
-      <div className="flex-1 space-y-12 items-center md:px-2">
-        <div className="text-secondary my-2 font-h2 flex flex-row">
+    <div className="md:w-60 bg-white md:flex h-screen items-center hidden rounded-lg shadow-md sticky">
+      <div className="flex-1 space-y-5 items-center md:px-2">
+        <div className="text-secondary font-h2 flex flex-row">
             <Image 
-                src="/public/Logo_Arrdel-removebg-preview.png" 
-                width={70}
-                height={70}
+                src={"/assets/Logo_Arrdel-removebg-preview.png"}
+                width={500}
+                height={500}
                 alt="logo"
             />
-            <p>
-                ArrdelBee Territorial
-            </p>
         </div>
         <div className="bg-fourth shadow-md rounded flex flex-row space-x-2 items-center p-2 w-full">
              <Image
                 className="p-2"
-                src="/public/pp.svg"
-                width={30}
-                height={30}
+                src={"/assets/pp.svg"}
+                width={50}
+                height={50}
                 alt = "profile"
              />
              <div className="text-third flex flex-col">
