@@ -79,6 +79,9 @@ const Page: React.FC = () => {
         <div className='flex justify-between relative'>
             <div className='relative ml-6 mb-3'>
                 <select className="inline-flex items-center px-4 py-2 border overflow-auto border-fray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" onChange={(e) => setSelectedOption(e.target.value)}>
+                    <option className="block px-4 p-5 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value=''>
+                        Choose a data Category
+                    </option>
                     <option className="block px-4 p-5 m-5 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" value='locality'>
                         locality
                     </option>
@@ -188,7 +191,7 @@ const Page: React.FC = () => {
         {renderTable()}
       </div>
       {isFormOk && (
-            <div id='form-container' className='relative items-center m-1 p-3 z-50 -top-[15rem]'>
+            <div id='form-container' className='relative backdrop-blur-2xl items-center h-full w-full p-10 z-50 -top-[15rem]'>
                 {renderForm()}
                 <button className='bg-primary hover:bg-third hover:text-fourth text-secondary font-bold py-2 px-4 rouuded flex space-x-3 mt-5 float-left' onClick={toggleForm}>
                     <XMarkIcon className="h-6 w-6" />
