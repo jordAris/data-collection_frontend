@@ -31,7 +31,7 @@ const sidebardata = [
             },
             {
                 title: "Data Collection",
-                path: "/data/collection",
+                path: "/",
                 icon: <ArrowDownOnSquareStackIcon className="h-5 w-5"/>,
             },
             {

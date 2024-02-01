@@ -9,12 +9,12 @@ const SubMenu = ({item}: {item: SideNavItem}) => {
   return (
     <div>
       <button onClick={item.subNav && showSubnav} className="flex flex-row items-center rounded-lg no-underline w-full justify-between ">
-        <div className="shadow-md text-fourth bg-white rounded w-full h-[50px] px-5 items-center flex flex-row space-x-6 hover:bg-third hover:text-fourth cursor-pointer transition-all duration-200 ease-out">
+        <div className="text-fourth justify-between bg-white rounded w-full h-[50px] px-5 items-center flex flex-row space-x-6 hover:bg-third hover:text-fourth cursor-pointer transition-all duration-200 ease-out">
              {item.icon}
              <p className="font-h2 flex">
                 {item.title}
              </p>
-             <div className="relative right-[-50px]">
+             <div className="relative">
                 {item.subNav && subnav
                 ? item.iconOpened
                 : item.subNav
@@ -27,8 +27,8 @@ const SubMenu = ({item}: {item: SideNavItem}) => {
       </button>
       {subnav && item.subNav?.map((item, index) => {
             return (
-                <Link className="shadow-md flex items-center no-underline text-third text-lg hover:bg-third text-fourth cursor-pointer transition-all duration-200 ease-out" href={item.path} key={index}>
-                  <div className="shadow-md text-fourth bg-white rounded w-full h-[50px] px-5 items-center flex flex-row space-x-6 hover:bg-third hover:text-fourth cursor-pointer transition-all duration-200 ease-out">
+                <Link className="flex items-center no-underlin text-third text-lg hover:bg-third text-fourth cursor-pointer transition-all duration-200 ease-out" href={item.path} key={index}>
+                  <div className="text-fourth bg-white rounded w-full h-[50px] px-5 items-center flex flex-row space-x-6 hover:bg-third hover:text-fourth cursor-pointer transition-all duration-200 ease-out">
                     {item.icon}
                     <p className="font-h2 flex">
                         {item.title}

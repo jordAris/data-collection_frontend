@@ -25,52 +25,62 @@ const Cadre: React.FC = () => {
   };
 
   return (
-    <div className="bg-third p-5 overflow-y-auto rounded-lg shadow-sm w-full h-[30rem]">
-      <h2 className="text-xl font-semibold mb-3">Register a cadre</h2>
+    <div className="bg-gray-100 backdrop-blur-3xl p-5 overflow-y-auto rounded-lg shadow-sm w-[80%] ml-[10rem] h-[30rem]">
+      <div className="border-b border-stroke py-4 px-6.5 mb-2">
+        <h3 className="font-medium text-black ">
+          Register a cadre
+        </h3>
+      </div>
       <form onSubmit={handleSubmit(handleSubmitForm)}>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="codeLocalite">
-            Cadre Code
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="CadreCode"
-            {...register('CadreCode', { required: true })}
-            type="number"
-            min="0"
-            placeholder="CadreCode"
-            //value={formData.codeLocalite}
-            onChange={handleChange}
-          />
+        <div className="p-6.5">
+          <div className="mb-4.5 flex flex-col gap-6 xl:flex-row">
+            <div className="w-full xl:w-1/2">
+              <label className="block text-gray-700 text-sm font-bold mb-2.5" htmlFor="codeLocalite">
+                Cadre Code
+              </label>
+              <input
+                className="border-[1.5px] rounded w-full py-3 bg-transparent outline-none px-5 border-stroke shadow-sm text-gray-700 transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter"
+                id="CadreCode"
+                {...register('CadreCode', { required: true })}
+                type="number"
+                min="1"
+                placeholder="CadreCode"
+                //value={formData.codeLocalite}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="w-full xl:w-1/2">
+              <label className="block text-gray-700 text-sm font-bold mb-2.5" htmlFor="Libelle">
+                Level Cadre
+              </label>
+              <input
+                className="border-[1.5px] rounded w-full py-3 bg-transparent outline-none px-5 border-stroke shadow-sm text-gray-700 transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter"
+                id="lvlCadre"
+                {...register('lvlCadre', { required: true })}
+                type="number"
+                placeholder="Level Cadre"
+                //value={formData.Libelle}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2.5" htmlFor="PNombreMenage">
+              Cadre
+            </label>
+            <input
+              className="border-[1.5px] rounded w-full py-3 bg-transparent outline-none px-5 border-stroke shadow-sm text-gray-700 transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter"
+              id="cad"
+              {...register('cadre', { required: true })}
+              type="text"
+              min="0"
+              placeholder="Cadre"
+              onChange={handleChange}
+            />
+          </div>
         </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Libelle">
-            Level Cadre
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="lvlCadre"
-            {...register('lvlCadre', { required: true })}
-            type="number"
-            placeholder="Level Cadre"
-            //value={formData.Libelle}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="PNombreMenage">
-            Cadre
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="cad"
-            {...register('cadre', { required: true })}
-            type="text"
-            min="0"
-            placeholder="Cadre"
-            onChange={handleChange}
-          />
-        </div>
+        
+
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="access">
             acessible
